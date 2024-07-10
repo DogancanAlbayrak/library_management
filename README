@@ -1,0 +1,50 @@
+# Kütüphane Yönetim Sistemi
+
+Bu proje, bir kütüphane yönetim sistemi için Java ve PostgreSQL kullanılarak geliştirilmiştir. Proje içerisinde kitaplar, yazarlar, kategoriler, yayınevleri ve ödünç alma işlemleri gibi entiteler bulunmaktadır. Aşağıda projenin detayları ve nasıl kullanılacağına dair bilgiler yer almaktadır.
+
+## Proje Yapısı
+
+Proje, Maven projesi olarak yapılandırılmıştır. Maven projesi olduğu için bağımlılıkları otomatik olarak yönetir ve build işlemlerini kolaylaştırır.
+
+## Teknolojiler
+
+- Java
+- Spring Boot
+- PostgreSQL
+
+## Bağımlılıklar
+
+Proje için gerekli bağımlılıklar `pom.xml` dosyasına eklenmiştir. Bu bağımlılıklar, Spring Boot ve PostgreSQL entegrasyonunu sağlar.
+
+## Entity Sınıfları ve İlişkiler
+
+Projede aşağıdaki entity sınıfları bulunmaktadır:
+
+- **Book**: Kitapların özelliklerini içerir.
+- **Author**: Yazarların özelliklerini içerir.
+- **Category**: Kitap kategorilerini içerir.
+- **Publisher**: Yayınevlerinin özelliklerini içerir.
+- **BookBorrowing**: Kitap ödünç alma işlemlerini izler.
+
+Entity sınıfları arasındaki ilişkiler şu şekildedir:
+
+- Bir kitabın bir yazarı olabilir, bir yazarın birden fazla kitabı olabilir (One-to-Many).
+- Bir kitap birden fazla kategoriye ait olabilir, bir kategori birden fazla kitaba ait olabilir (Many-to-Many).
+- Bir kitabın bir yayınevi olabilir, bir yayınevinin birden fazla kitabı olabilir (One-to-Many).
+- Bir kitap birden fazla ödünç alma işlemine sahip olabilir, her ödünç alma işlemi yalnızca bir kitaba ait olabilir (One-to-Many).
+
+## Veritabanı
+
+Projede PostgreSQL veritabanı kullanılmıştır. Her bir entity sınıfı, veritabanında bir tabloya karşılık gelir.
+
+## Kurulum
+
+Projenin çalıştırılması için aşağıdaki adımları izleyin:
+
+1. PostgreSQL veritabanı oluşturun.
+2. `application.properties` dosyasında veritabanı bağlantı ayarlarını yapılandırın.
+3. Proje kök dizininde `mvn clean install` komutunu çalıştırarak bağımlılıkları yükleyin.
+4. Proje kök dizininde `mvn spring-boot:run` komutunu çalıştırarak uygulamayı başlatın.
+
+
+
